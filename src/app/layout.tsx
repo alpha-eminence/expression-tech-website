@@ -1,26 +1,39 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Expression Tech | AI Consulting by Travis Brown",
-  description: "Navigate the AI landscape with confidence. Expert consulting for individuals and businesses looking to leverage AI effectively.",
-  keywords: ["AI consulting", "artificial intelligence", "AI strategy", "Travis Brown", "Expression Tech"],
+  title: "XPRSV Tech | AI Consulting by Travis Brown",
+  description:
+    "I help people and businesses in LA cut through the AI noise and build real solutions. Individual and business consultations available.",
+  keywords: [
+    "AI consulting",
+    "AI consulting Los Angeles",
+    "Travis Brown",
+    "XPRSV Tech",
+    "AI workshops LA",
+  ],
   authors: [{ name: "Travis Brown" }],
+  metadataBase: new URL("https://xprsvtech.com"),
   openGraph: {
-    title: "Expression Tech | AI Consulting",
-    description: "Navigate the AI landscape with confidence.",
+    title: "XPRSV Tech | AI that actually works for you.",
+    description:
+      "I help people and businesses in LA cut through the AI noise and build real solutions.",
     type: "website",
+    locale: "en_US",
+    siteName: "XPRSV Tech",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "XPRSV Tech | AI that actually works for you.",
+    description:
+      "I help people and businesses in LA cut through the AI noise and build real solutions.",
   },
 };
 
@@ -30,10 +43,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-dark-950`}
-      >
+    <html lang="en">
+      <body className={`${inter.variable} font-sans antialiased min-h-screen bg-warm-50 text-warm-900`}>
         {children}
       </body>
     </html>
