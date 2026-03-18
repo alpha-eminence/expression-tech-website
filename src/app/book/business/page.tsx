@@ -1,0 +1,230 @@
+"use client";
+
+import Link from "next/link";
+import { useState } from "react";
+
+export default function BusinessBooking() {
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // In production, this would send to an API
+    setSubmitted(true);
+  };
+
+  if (submitted) {
+    return (
+      <main className="min-h-screen flex items-center justify-center px-6">
+        <div className="max-w-md text-center">
+          <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-primary-500/10 flex items-center justify-center">
+            <svg className="w-8 h-8 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <h1 className="text-3xl font-bold mb-4">Request Received!</h1>
+          <p className="text-dark-400 mb-8">
+            Thank you for your interest. I&apos;ll review your business information and reach out within 24 hours to discuss how AI can help your organization.
+          </p>
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-primary-500 font-semibold hover:gap-3 transition-all"
+          >
+            <svg className="w-5 h-5 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+            Back to Home
+          </Link>
+        </div>
+      </main>
+    );
+  }
+
+  return (
+    <main className="min-h-screen py-16 px-6">
+      <div className="max-w-2xl mx-auto">
+        {/* Header */}
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-dark-400 hover:text-primary-500 transition-colors mb-8"
+        >
+          <svg className="w-5 h-5 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+          Back
+        </Link>
+
+        <div className="mb-10">
+          <span className="inline-block px-4 py-2 mb-4 text-sm font-medium text-primary-400 bg-primary-500/10 rounded-full border border-primary-500/20">
+            Business Consultation
+          </span>
+          <h1 className="text-4xl font-bold mb-4">Book Your Session</h1>
+          <p className="text-xl text-dark-400">
+            $150/hour — Let&apos;s explore how AI can transform your business operations.
+          </p>
+        </div>
+
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium mb-2">
+                Your Name *
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                className="w-full px-4 py-3 bg-dark-900 border border-dark-700 rounded-lg focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none transition-colors"
+                placeholder="John Doe"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="role" className="block text-sm font-medium mb-2">
+                Your Role *
+              </label>
+              <input
+                type="text"
+                id="role"
+                name="role"
+                required
+                className="w-full px-4 py-3 bg-dark-900 border border-dark-700 rounded-lg focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none transition-colors"
+                placeholder="CEO, Operations Manager, etc."
+              />
+            </div>
+          </div>
+
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium mb-2">
+              Work Email *
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              className="w-full px-4 py-3 bg-dark-900 border border-dark-700 rounded-lg focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none transition-colors"
+              placeholder="john@company.com"
+            />
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <label htmlFor="company" className="block text-sm font-medium mb-2">
+                Company Name *
+              </label>
+              <input
+                type="text"
+                id="company"
+                name="company"
+                required
+                className="w-full px-4 py-3 bg-dark-900 border border-dark-700 rounded-lg focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none transition-colors"
+                placeholder="Acme Corp"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="industry" className="block text-sm font-medium mb-2">
+                Industry *
+              </label>
+              <input
+                type="text"
+                id="industry"
+                name="industry"
+                required
+                className="w-full px-4 py-3 bg-dark-900 border border-dark-700 rounded-lg focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none transition-colors"
+                placeholder="Healthcare, Finance, Retail, etc."
+              />
+            </div>
+          </div>
+
+          <div>
+            <label htmlFor="team_size" className="block text-sm font-medium mb-2">
+              Team Size *
+            </label>
+            <select
+              id="team_size"
+              name="team_size"
+              required
+              className="w-full px-4 py-3 bg-dark-900 border border-dark-700 rounded-lg focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none transition-colors"
+            >
+              <option value="">Select team size</option>
+              <option value="1">Just me (Solopreneur)</option>
+              <option value="2-10">2-10 employees</option>
+              <option value="11-50">11-50 employees</option>
+              <option value="51-200">51-200 employees</option>
+              <option value="200+">200+ employees</option>
+            </select>
+          </div>
+
+          <div>
+            <label htmlFor="current_state" className="block text-sm font-medium mb-2">
+              What are you doing currently? *
+            </label>
+            <textarea
+              id="current_state"
+              name="current_state"
+              required
+              rows={3}
+              className="w-full px-4 py-3 bg-dark-900 border border-dark-700 rounded-lg focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none transition-colors resize-none"
+              placeholder="Describe your current workflows, tools, and processes..."
+            />
+          </div>
+
+          <div>
+            <label htmlFor="goals" className="block text-sm font-medium mb-2">
+              What do you hope to achieve? *
+            </label>
+            <textarea
+              id="goals"
+              name="goals"
+              required
+              rows={3}
+              className="w-full px-4 py-3 bg-dark-900 border border-dark-700 rounded-lg focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none transition-colors resize-none"
+              placeholder="What problems are you trying to solve? What would success look like?"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="tech_stack" className="block text-sm font-medium mb-2">
+              Current Tech Stack (Optional)
+            </label>
+            <textarea
+              id="tech_stack"
+              name="tech_stack"
+              rows={2}
+              className="w-full px-4 py-3 bg-dark-900 border border-dark-700 rounded-lg focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none transition-colors resize-none"
+              placeholder="What tools and software does your team use? (CRM, project management, communication, etc.)"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="availability" className="block text-sm font-medium mb-2">
+              Preferred Availability *
+            </label>
+            <input
+              type="text"
+              id="availability"
+              name="availability"
+              required
+              className="w-full px-4 py-3 bg-dark-900 border border-dark-700 rounded-lg focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none transition-colors"
+              placeholder="e.g., Weekday mornings, Tuesday/Thursday afternoons"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="w-full px-8 py-4 bg-primary-500 hover:bg-primary-600 text-dark-950 font-semibold rounded-lg transition-all hover:scale-[1.02]"
+          >
+            Submit Request
+          </button>
+
+          <p className="text-sm text-dark-500 text-center">
+            I&apos;ll review your information and reach out within 24 hours to schedule.
+          </p>
+        </form>
+      </div>
+    </main>
+  );
+}
