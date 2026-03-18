@@ -20,6 +20,9 @@ export const metadata: Metadata = {
     "AI workshops LA",
   ],
   authors: [{ name: "Travis Brown" }],
+  icons: {
+    icon: "/favicon.svg",
+  },
   metadataBase: new URL("https://xprsvtech.com"),
   openGraph: {
     title: "XPRSV Tech | AI that actually works for you.",
@@ -28,6 +31,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "XPRSV Tech",
+    images: [{ url: "/og-image.svg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
